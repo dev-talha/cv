@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #0f172a; /* Deep Slate / Charcoal */
+  --secondary-color: #475569; /* Slate Gray */
+  --text-main: #334155; /* Slate 700 */
+  --text-light: #64748b; /* Slate 500 */
+  --bg-color: #f8fafc;
+  --paper-bg: #ffffff;
+  --border-color: #e2e8f0;
+  --pill-bg: #f1f5f9;
+  --pill-text: #334155;
+  --page-w: 800px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resume-sheet {
+  background: var(--paper-bg);
+  width: 100%;
+  max-width: var(--page-w);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 60px 70px;
+  border-radius: 2px;
+}
+
+/* Header Section */
+header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+  font-size: 42px;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 4px;
+  letter-spacing: -1px;
+}
+
+header .job-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+}
+
+.contact-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 20px;
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.contact-info a {
+  color: var(--text-light);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.2s;
+}
+
+.contact-info a:hover {
+  color: var(--primary-color);
+}
+
+.contact-info i {
+  font-size: 16px;
+  color: var(--primary-color);
+}
+
+/* Sections */
+section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title i {
+  color: var(--secondary-color);
+}
+
+/* Summary */
+.summary p {
+  font-size: 15px;
+  color: var(--text-main);
+  text-align: justify;
+}
+
+/* Experience */
+.experience-item {
+  margin-bottom: 15px;
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.experience-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.experience-company {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--secondary-color);
+}
+
+.experience-date {
+  font-size: 14px;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+.experience-details {
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+.experience-details li {
+  font-size: 14px;
+  margin-bottom: 4px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.experience-details li::before {
+  content: "•";
+  color: var(--secondary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  font-size: 16px;
+}
+
+/* Skills */
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.skill-category {
+  margin-bottom: 10px;
+}
+
+.skill-category-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  background-color: var(--pill-bg);
+  color: var(--pill-text);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Print optimizations */
+@media print {
+  body {
+    background-color: white;
+    padding: 0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .resume-sheet {
+    box-shadow: none;
+    border-top: none;
+    padding: 0;
+  }
+  .download-bar {
+    display: none;
+  }
+
+  /* Prevent titles from being stranded at the bottom of the page */
+  .section-title {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+  .experience-header {
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+}
+
+/* Download Bar */
+.download-bar {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.download-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+
+.download-btn:hover {
+  background-color: var(--secondary-color);
+}
